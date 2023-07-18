@@ -5,4 +5,6 @@ import 'package:chapter9_dart/model/student.dart';
 
 void main(List<String> arguments) {
   var st = Student().input();
+  print(st = Student().addStudent());
+  print(st = Student().sortByName());
 }

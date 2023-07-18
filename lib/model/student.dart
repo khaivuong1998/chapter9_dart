@@ -61,4 +61,54 @@ class Student {
         Student.contructor(id, name, age, course, address, mediumScore);
     print(student);
   }
+
+  List list = List.filled(5, "", growable: true);
+  List addStudent() {
+    print('nhập id');
+    String id = stdin.readLineSync() ?? "";
+    print('nhập tên');
+    String name = stdin.readLineSync() ?? "";
+    print('nhập tuổi');
+    String string = stdin.readLineSync() ?? "";
+    final alphanumeric = RegExp(r'^-?[0-9]+$');
+    int age;
+    if (string.isEmpty || !alphanumeric.hasMatch(string)) {
+      while (true) {
+        print('bạn nhập sai định dạng, mời nhập lại');
+        string = stdin.readLineSync() ?? "";
+        if (alphanumeric.hasMatch(string)) {
+          age = int.parse(string);
+          break;
+        }
+      }
+    }
+    age = int.parse(string);
+    print('nhập khoá học');
+    String course = stdin.readLineSync() ?? "";
+    print('nhập địa chỉ');
+    String address = stdin.readLineSync() ?? "";
+    print('nhập điểm trung bình');
+    String string1 = stdin.readLineSync() ?? "";
+    double mediumScore;
+    if (string1.isEmpty || !alphanumeric.hasMatch(string1)) {
+      while (true) {
+        print('bạn nhập sai định dạng, mời nhập lại');
+        string1 = stdin.readLineSync() ?? "";
+        if (alphanumeric.hasMatch(string1)) {
+          mediumScore = double.parse(string1);
+          break;
+        }
+      }
+    }
+    mediumScore = double.parse(string1);
+    var student =
+        Student.contructor(id, name, age, course, address, mediumScore);
+    list.add(student);
+    return list;
+  }
+
+  List sortByName() {
+    list.sort();
+    return list;
+  }
 }
